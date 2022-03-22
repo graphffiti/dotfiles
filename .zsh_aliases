@@ -1,0 +1,12 @@
+if command -v lsd &> /dev/null
+then
+    alias ls='lsd'
+fi
+
+
+alias l='ls -l'
+alias ll='ls -alrtF'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+alias cddev='cd ~/dev-lorwin'
