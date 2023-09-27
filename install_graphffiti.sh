@@ -108,4 +108,6 @@ cp -rfv .config $HOME
 cp -rv .zsh* $HOME
 
 sudo chsh -s $(which zsh)
+sudo usermod -s $(which zsh) $(whoami)
+
 log "PLEASE RELOAD YOUR TERMINAL !!!"
