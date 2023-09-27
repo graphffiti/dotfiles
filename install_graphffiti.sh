@@ -20,8 +20,8 @@ if ! command -v zsh &> /dev/null 2>&1
 then
 	log "zsh is not yet installed!"
 	log "Installing zsh"
-	sudo apt install-y zsh
-	if $? != 0; then
+	sudo apt install -y zsh
+	if [ $? != 0 ]; then
 		log "Failed to install zsh :("
 	else
 		log "Success installing zsh :)"
@@ -62,6 +62,16 @@ then
 
 else
 	log "Rust programs are already installed"
+	log "Let's update rust to newer version"
+
+	rustup update
+
+	if [ $? != 0 ]; then
+		log "Failed to update Rust programs :("
+	else
+		log "Success updating Rust programs :)"
+		. "$HOME/.cargo/env"
+	fi
 fi
 
 
