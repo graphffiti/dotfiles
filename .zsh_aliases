@@ -5,8 +5,7 @@ fi
 
 
 alias l='ls -l'
-alias ll='ls -alrtF'
-alias la='ls -a'
-alias lla='ls -la'
-alias lt='ls --tree'
+alias ll='ls -lrthF --group-directories-first'
+alias la='ll -a'
+alias lt='ll --tree'
 alias cddev='cd ~/dev-lorwin'
