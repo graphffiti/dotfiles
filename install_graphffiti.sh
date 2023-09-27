@@ -13,11 +13,14 @@ log ""
 git config --global user.email "graphffiti@gmail.com"
 git config --global user.name "graphffiti"
 
+sudo apt install -y build-essential cmake
+
+
 if ! command -v zsh &> /dev/null 2>&1 
 then
 	log "zsh is not yet installed!"
 	log "Installing zsh"
-	sudo apt install zsh
+	sudo apt install-y zsh
 	if $? != 0; then
 		log "Failed to install zsh :("
 	else
@@ -43,8 +46,8 @@ fi
 
 
 
-if  ! command -v rustc &> /dev/null 2>&1  || 
-	! command -v rustup &> /dev/null 2>&1 || 
+if	! command -v rustup &> /dev/null 2>&1 || 
+	! command -v rustc &> /dev/null 2>&1  || 
 	! command -v cargo &> /dev/null 2>&1  
 then
 	log "Rust programs are not yet installed!"
@@ -90,3 +93,9 @@ then
 else
 	log "lsd is already installed"
 fi
+
+cp -rfv .config $HOME
+cp -rv .zsh* $HOME
+
+sudo chsh -s $(which zsh)
+log "PLEASE RELOAD YOUR TERMINAL !!!"
