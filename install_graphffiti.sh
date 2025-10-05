@@ -104,6 +104,22 @@ else
 	log "lsd is already installed"
 fi
 
+if ! command -v z &> /dev/null 2>&1 
+then
+	log "zoxide is not yet installed!"
+	log "Installing zoxide"
+	cargo install zoxide --locked
+	eval "$(zoxide init zsh)"
+
+	if [ $? != 0 ]; then
+		log "Failed to install zoxide :("
+	else
+		log "Success installing zoxide :)"
+	fi
+else
+	log "zoxide is already installed"
+fi
+
 cp -rfv .config $HOME
 cp -rv .zsh* $HOME
 
